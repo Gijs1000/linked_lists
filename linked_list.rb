@@ -20,8 +20,7 @@ class LinkedList
   end
 
   def append(node)
-    if @head.nil? # if there are no nodes yet, head points towards the node that was just added, since it's the only node.
-      @head = node
+    if @head.nil? # if there are no nodes yet, head points towards the node that was just added.
       @tail = node
     else # if there are nodes already...
       @tail.next_node = node # newly passed node gets added after last node
@@ -61,10 +60,10 @@ class LinkedList
 
   def pop
     temp_node = @head
-    until temp_node.next_node == @tail # until the node after the current temp_node is the last node..
-      temp_node = temp_node.next_node # ..temp node becomes the next node
+    until temp_node.next_node == @tail 
+      temp_node = temp_node.next_node 
     end
-    temp_node.next_node = nil # once that is done. The temp node's next_node property is set to nil, since it will become the new last node.
+    temp_node.next_node = nil # The temp node's next_node property is set to nil, since it will become the new last node.
     @tail = temp_node # the tail is assigned the temp_node. Since that is now the last node.
   end
 
